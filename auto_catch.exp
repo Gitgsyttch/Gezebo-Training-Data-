@@ -1,0 +1,63 @@
+#!/usr/bin/expect -f
+set timeout -1
+
+spawn ros2 run physicalai_teleop teleop_keyboard
+
+send "o"
+sleep 0.3
+for {set i 0} {$i <32} {incr i} {
+    send "s"
+    sleep 0.3
+}
+for {set i 0} {$i < 32} {incr i} {
+    send "q"
+    send "s"
+    sleep 0.3
+    send "q"
+    send "s"
+    sleep 0.3
+    send "e"
+    send "e"
+}
+send "c"
+sleep 0.3
+send "c"
+sleep 1.3
+#pull up
+send "q"
+sleep 0.3
+for {set i 0} {$i < 30} {incr i} {
+    send "w"
+    sleep 0.3
+}  
+#send "c"
+send "e"
+sleep 0.3
+for {set i 0} {$i < 64} {incr i} {
+    send "w"
+    sleep 0.3
+}
+#send "c"
+send "e"
+sleep 0.3
+send "e"
+sleep 0.3
+send "e"
+sleep 0.3
+for {set i 0} {$i < 30} {incr i} {
+    send "s"
+    sleep 0.3
+}
+send "o"
+sleep "0.3"
+#send "q"
+for {set i 0} {$i < 30} {incr i} {
+    send "w"
+    sleep 0.3
+}
+sleep 1.0
+send "x"
+sleep 1.0
+send "\003"        ;# Ctrl+C で終了
+expect eof
+
